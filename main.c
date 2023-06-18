@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:44:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/18 02:54:47 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/18 02:56:03 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	add_to_table(t_philo *philos)
 	while (i <= philos->data->num_of_philo)
 	{
 		philos->next = ft_lstnew(philos, i, tmp);
-		philos = philos->next; 
+		philos = philos->next;
 		i++;
 	}
 	philos = tmp;
