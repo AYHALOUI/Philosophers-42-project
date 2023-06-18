@@ -41,15 +41,11 @@ void	add_to_table(t_philo *philos)
 
 int	main(int ac, char **av)
 {
-	int		i;
 	t_philo	*philos;
-	t_philo	*tmp;
 	t_data	*data;
 
-	i = 1;
 	data = malloc(sizeof(t_data));
 	philos = NULL;
-	tmp = NULL;
 	check_if_valid_args(ac, av);
 	if (ac == 5 || ac == 6)
 	{
