@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/18 02:39:34 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/19 00:48:06 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	init_data(t_data *data, int ac, char **av)
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
 	data->time_to_sleep = ft_atoi(av[4]);
+	data->time = 0;
 	if (ac == 6)
 		data->num_of_times_each_philo_must_eat = ft_atoi(av[5]);
 	else
@@ -61,6 +62,7 @@ t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp)
 	new->state = philo->state;
 	new->data = philo->data;
 	new->next = tmp;
+	pthread_mutex_init(&new->forks, NULL);
 	return (new);
 }
 
