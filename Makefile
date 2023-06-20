@@ -6,7 +6,7 @@
 #    By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/17 23:36:48 by ahaloui           #+#    #+#              #
-#    Updated: 2023/06/19 00:47:07 by ahaloui          ###   ########.fr        #
+#    Updated: 2023/06/20 02:43:21 by ahaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread 
+CFLAGS = -Wall -Wextra -Werror  -g -fsanitize=thread
 
-SRCS = utils.c utils1.c main.c
+SRCS = utils.c utils1.c utils2.c utils3.c main.c
 
 OBJS = $(SRCS:.c=.o)
 
