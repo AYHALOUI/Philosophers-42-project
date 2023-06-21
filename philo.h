@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:33:06 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/20 02:41:58 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/21 17:23:16 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <pthread.h>
 # include <stdio.h>
+# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
@@ -31,10 +32,12 @@ typedef struct s_data
 	int				num_of_times_each_philo_must_eat;
 	pthread_mutex_t	death;
 	pthread_mutex_t	var;
+	pthread_mutex_t	print;
 }	t_data;
 
 typedef struct s_philo
 {
+	pthread_mutex_t	last;
 	int				id;
 	int				state;
 	int				last_meal_time;
@@ -43,7 +46,6 @@ typedef struct s_philo
 	int				dead_philo;
 	t_data			*data;
 	pthread_t		thread;
-	pthread_mutex_t	print;
 	pthread_mutex_t	forks;
 	struct s_philo	*next;
 }	t_philo;
@@ -64,7 +66,6 @@ t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp);
 void	ft_lstadd_back(t_philo **alst, t_philo *new);
 
 // utils2.c
-int		check_death(t_philo *philo);
 int		gettime(void);
 void	my_printf(t_philo *philo, char *str);
 int		my_usleep(int time);

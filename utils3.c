@@ -6,12 +6,11 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:14:46 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/20 02:26:34 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/21 17:21:55 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
 
 void	print_philo(t_philo *philos)
 {
@@ -37,4 +36,11 @@ void	help_create_threads(t_philo *philos)
 		philos = philos->next;
 		j++;
 	}
+	// j = 0;
+	// while (j < philos->data->num_of_philo)
+	// {
+	// 	pthread_join(philos->thread, NULL);
+	// 	philos = philos->next;
+	// 	j++;
+	// }
 }

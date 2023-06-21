@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:09:56 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/20 03:02:10 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/21 17:19:17 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,34 @@ void	add_to_table(t_philo **philos)
 	tmp->next = *philos;
 }
 
-int	check_death(t_philo *philo)
-{
-	int	i;
-	if (gettime() - philo->last_meal_time >= philo->data->time_to_die)
-	{
-		i = 0;
-		pthread_mutex_lock(&philo->data->death);
-		while (i < philo->data->num_of_philo)
-		{
-			philo->dead_philo = 1;
-			philo = philo->next;
-			i++;
-		}
-		pthread_mutex_unlock(&philo->data->death);
-		my_printf(philo, "died");
-		return (1);
-	}
-	else
-	{
-		// pthread_mutex_unlock(&philo->data->death);
-		return (0);
-	}
-}
+// int	check_death(t_philo *philo)
+// {
+	
+// 	int	i;
+
+// 	while (i < philo->data->num_of_philo)
+// 	{
+// 		if (gettime() - philo->last_meal_time >= philo->data->time_to_die)
+// 		{
+// 		i = 0;
+// 		pthread_mutex_lock(&philo->data->death);
+// 		while (i < philo->data->num_of_philo)
+// 		{
+// 			philo->dead_philo = 1;
+// 			philo = philo->next;
+// 			i++;
+// 		}
+// 		pthread_mutex_unlock(&philo->data->death);
+// 		my_printf(philo, "died");
+// 		return (1);
+// 		}
+// 		else
+// 		return (0);
+// 		philo = philo->next;
+// 		i++;
+// 	}
+	
+// }
 
 // int check_death(t_philo* philo)
 // {
@@ -76,9 +81,11 @@ int	gettime(void)
 
 void	my_printf(t_philo *philo, char *str)
 {
-	pthread_mutex_lock(&philo->print);
+	pthread_mutex_lock(&philo->data->print);
+	// pthread_mutex_lock(&philo->data->var);
 	printf("%d %d %s\n", gettime() - philo->start_time, philo->id, str);
-	pthread_mutex_unlock(&philo->print);
+	// pthread_mutex_unlock(&philo->data->var);
+	pthread_mutex_unlock(&philo->data->print);
 }
 
 int	my_usleep(int time)
