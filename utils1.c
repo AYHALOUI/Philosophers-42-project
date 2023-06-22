@@ -6,10 +6,9 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 00:16:57 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 03:04:08 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "philo.h"
 
@@ -30,18 +29,16 @@ void	init_data(t_data *data, int ac, char **av)
 		data->num_of_times_each_philo_must_eat = 0;
 }
 
-
 t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_data *data)
 {
-	(void)philo;
 	t_philo	*new;
 
+	(void)philo;
 	new = (t_philo *)malloc(sizeof(t_philo));
 	if (!new)
 		return (NULL);
 	new->id = id;
 	new->data = data;
-	// new->start_time = gettime();
 	new->last_meal_time = gettime();
 	new->next = tmp;
 	return (new);
