@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:30:59 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/18 01:56:12 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 00:27:21 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,16 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-void	check_if_valid_args(int ac, char **av)
+int	check_if_valid_args(int ac, char **av)
 {
 	int	i;
 	int	j;
 
+	if (ac < 5 || ac > 6)
+	{
+		printf("Error: wrong number of arguments\n");
+		return (1);
+	} 
 	i = 1;
 	while (i < ac)
 	{
@@ -70,9 +75,10 @@ void	check_if_valid_args(int ac, char **av)
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
-				quit();
+				return (1);
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }

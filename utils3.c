@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:14:46 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/21 17:21:55 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/21 23:20:53 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	print_philo(t_philo *philos)
 	printf("time_to_die: %d\n", philos->data->time_to_die);
 	printf("time_to_eat: %d\n", philos->data->time_to_eat);
 	printf("time_to_sleep: %d\n", philos->data->time_to_sleep);
-	printf("dead_philo: %d\n", philos->dead_philo);
 	printf("num_of_times_each_philo_must_eat: %d\n",
 		philos->data->num_of_times_each_philo_must_eat);
 }
@@ -44,3 +43,4 @@ void	help_create_threads(t_philo *philos)
 	// 	j++;
 	// }
 }
+

@@ -6,7 +6,7 @@
 #    By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/17 23:36:48 by ahaloui           #+#    #+#              #
-#    Updated: 2023/06/20 22:18:25 by ahaloui          ###   ########.fr        #
+#    Updated: 2023/06/22 01:03:02 by ahaloui          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror  #-g -fsanitize=thread
 
 SRCS = utils.c utils1.c utils2.c utils3.c main.c
 

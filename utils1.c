@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/21 17:18:45 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 00:16:57 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,64 +19,30 @@ void	init_data(t_data *data, int ac, char **av)
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
 	data->time_to_sleep = ft_atoi(av[4]);
-	data->time = 0;
+	data->start_time = gettime();
+	data->flag = 0;
+	pthread_mutex_init(&data->last_meal_mutex, NULL);
+	pthread_mutex_init(&data->start_time_mutex, NULL);
+	pthread_mutex_init(&data->print_mutex, NULL);
 	if (ac == 6)
 		data->num_of_times_each_philo_must_eat = ft_atoi(av[5]);
 	else
 		data->num_of_times_each_philo_must_eat = 0;
 }
 
-// void	print_data(t_data *data)
-// {
-// 	printf("num_of_philo: %d\n", data->num_of_philo);
-// 	printf("time_to_die: %d\n", data->time_to_die);
-// 	printf("time_to_eat: %d\n", data->time_to_eat);
-// 	printf("time_to_sleep: %d\n", data->time_to_sleep);
-// 	printf("num_of_times_each_philo_must_eat: %d\n",
-// 		data->num_of_times_each_philo_must_eat);
-// }
 
-void	init_philos(t_philo *philo, t_data *data)
+t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_data *data)
 {
-	philo->id = 0;
-	philo->state = 0;
-	philo->data = data;
-}
-
-void	print_philos(t_philo *philo)
-{
-	printf("id: %d\n", philo->id);
-	printf("state: %d\n", philo->state);
-	// print_data(philo->data);
-}
-
-t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp)
-{
+	(void)philo;
 	t_philo	*new;
 
 	new = (t_philo *)malloc(sizeof(t_philo));
 	if (!new)
 		return (NULL);
 	new->id = id;
-	new->state = philo->state;
-	new->data = philo->data;
+	new->data = data;
+	// new->start_time = gettime();
+	new->last_meal_time = gettime();
 	new->next = tmp;
-	pthread_mutex_init(&new->forks, NULL);
-	pthread_mutex_init(&new->last, NULL);
 	return (new);
-}
-
-void	ft_lstadd_back(t_philo **alst, t_philo *new)
-{
-	t_philo	*last;
-
-	if (!*alst)
-	{
-		*alst = new;
-		return ;
-	}
-	last = *alst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
 }
