@@ -16,9 +16,7 @@ void	free_philos(t_philo **philos)
 {
 	t_philo	*head;
 	t_philo	*tmp2;
-	int		i;
 
-	i = 0;
 	head = *philos;
 	while (head->next != *philos)
 	{
