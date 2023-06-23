@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:12:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 03:12:56 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 21:34:06 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	philosopher_thread(t_philo *philo)
 	if (philo->id % 2 == 0)
 		usleep(600);
 	pthread_mutex_lock(&philo->data->last_meal_mutex);
-	philo->last_meal_time = gettime();
+	philo->last_meal_time = my_gettime();
 	pthread_mutex_unlock(&philo->data->last_meal_mutex);
 	while (1)
 	{
@@ -27,7 +27,7 @@ void	philosopher_thread(t_philo *philo)
 		my_printf(philo, "has taken a left fork", KBLU);
 		my_printf(philo, "is eating", KYEL);
 		pthread_mutex_lock(&philo->data->last_meal_mutex);
-		philo->last_meal_time = gettime();
+		philo->last_meal_time = my_gettime();
 		philo->eat_count++;
 		if (philo->eat_count == philo->data->num_of_times_each_philo_must_eat)
 			philo->data->flag++;
@@ -61,7 +61,7 @@ void	monitor_threads(t_philo *philos)
 	while (1)
 	{
 		pthread_mutex_lock(&philos->data->last_meal_mutex);
-		if (gettime() - philos->last_meal_time >= philos->data->time_to_die)
+		if (my_gettime() - philos->last_meal_time >= philos->data->time_to_die)
 		{
 			my_printf(philos, "died", KRED);
 			pthread_mutex_lock(&philos->data->print_mutex);

@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:09:56 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 02:27:35 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 21:33:58 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_to_table(t_philo **philos, t_data *data)
 	tmp->next = *philos;
 }
 
-int	gettime(void)
+int	my_gettime(void)
 {
 	struct timeval	time;
 
@@ -41,9 +41,8 @@ int	gettime(void)
 void	my_printf(t_philo *philo, char *str, char *color)
 {
 	pthread_mutex_lock(&philo->data->print_mutex);
-	pthread_mutex_lock(&philo->data->start_time_mutex);
-	printf("%s%d %d %s%s\n", color, gettime() - philo->data->start_time, philo->id, str, END);
-	pthread_mutex_unlock(&philo->data->start_time_mutex);
+	printf("%s%d %d %s%s\n", color,
+		my_gettime() - philo->data->start_time, philo->id, str, END);
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 
@@ -51,8 +50,8 @@ int	my_usleep(int time)
 {
 	int	start;
 
-	start = gettime();
-	while (gettime() - start < time)
+	start = my_gettime();
+	while (my_gettime() - start < time)
 		usleep(100);
 	return (1);
 }

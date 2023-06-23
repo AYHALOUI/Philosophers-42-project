@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:33:06 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 03:14:10 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/22 21:33:13 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_isdigit(int c);
 int		check_if_valid_args(int ac, char **av);
 void	init_data(t_data *data, int ac, char **av);
 t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_data *data);
-int		gettime(void);
+int		my_gettime(void);
 void	my_printf(t_philo *philo, char *str, char *color);
 int		my_usleep(int time);
 void	add_to_table(t_philo **philos, t_data *data);

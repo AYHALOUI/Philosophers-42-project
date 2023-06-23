@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:44:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 03:18:27 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/23 00:36:47 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_philos(t_philo **philos)
 {
 	t_philo	*head;
 	t_philo	*tmp2;
-	int	i;
+	int		i;
 
 	i = 0;
 	head = *philos;
@@ -38,13 +38,20 @@ void	print_list(t_philo *p)
 	}
 }
 
+void	ff()
+{
+	system("leaks philo");
+}
+
 int	main(int ac, char **av)
 {
 	t_philo	*philos;
 	t_data	*data;
-	int		check;	
+	int		check;
 
 	data = malloc(sizeof(t_data));
+	if (!data)
+		return (0);
 	philos = NULL;
 	check = check_if_valid_args(ac, av);
 	if (check)
@@ -60,7 +67,7 @@ int	main(int ac, char **av)
 	help_create_threads(philos);
 	monitor_threads(philos);
 	destroy_mutex(philos);
-	// free_philos(&philos);
-	// free(data);
+	free_philos(&philos);
+	free(data);
 	return (0);
 }
