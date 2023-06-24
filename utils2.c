@@ -6,13 +6,13 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:09:56 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 21:33:58 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/24 21:42:17 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	add_to_table(t_philo **philos, t_data *data)
+void	add_to_table(t_philo **philos, t_dinging_data *data)
 {
 	t_philo	*tmp;
 	int		i;

@@ -6,13 +6,13 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 21:33:38 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/06/24 21:42:03 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_data(t_data *data, int ac, char **av)
+void	init_dinging_data(t_dinging_data *data, int ac, char **av)
 {
 	data->num_of_philo = ft_atoi(av[1]);
 	data->time_to_die = ft_atoi(av[2]);
@@ -29,7 +29,7 @@ void	init_data(t_data *data, int ac, char **av)
 		data->num_of_times_each_philo_must_eat = 0;
 }
 
-t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_data *data)
+t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_dinging_data *data)
 {
 	t_philo	*new;
 
