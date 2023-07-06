@@ -47,7 +47,7 @@ typedef struct s_dinging_data
 
 typedef struct s_philo
 {
-	int						id;
+	int						philo_number;
 	int						last_meal_time;
 	int						eat_count;
 	t_dinging_data			*data;

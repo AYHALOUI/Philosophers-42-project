@@ -42,7 +42,7 @@ void	my_printf(t_philo *philo, char *str, char *color)
 {
 	pthread_mutex_lock(&philo->data->print_mutex);
 	printf("%s%d %d %s%s\n", color,
-		my_gettime() - philo->data->start_time, philo->id, str, END);
+		my_gettime() - philo->data->start_time, philo->philo_number, str, END);
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 

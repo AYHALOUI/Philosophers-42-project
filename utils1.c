@@ -37,7 +37,7 @@ t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_dinging_data *data)
 	new = (t_philo *)malloc(sizeof(t_philo));
 	if (!new)
 		return (NULL);
-	new->id = id;
+	new->philo_number = id;
 	new->data = data;
 	new->last_meal_time = my_gettime();
 	new->next = tmp;

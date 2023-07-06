@@ -14,7 +14,7 @@
 
 void	print_philo(t_philo *philos)
 {
-	printf("id: %d\n", philos->id);
+	printf("id: %d\n", philos->philo_number);
 	printf("num_of_philo: %d\n", philos->data->num_of_philo);
 	printf("time_to_die: %d\n", philos->data->time_to_die);
 	printf("time_to_eat: %d\n", philos->data->time_to_eat);

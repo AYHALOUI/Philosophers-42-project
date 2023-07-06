@@ -14,7 +14,7 @@
 
 void	philosopher_thread(t_philo *philo)
 {
-	if (philo->id % 2 == 0)
+	if (philo->philo_number % 2 == 0)
 		usleep(600);
 	pthread_mutex_lock(&philo->data->last_meal_mutex);
 	philo->last_meal_time = my_gettime();
