@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:12:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 21:34:06 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/11 15:22:59 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	philosopher_thread(t_philo *philo)
 	while (1)
 	{
 		pthread_mutex_lock(&philo->fork_mutex);
-		my_printf(philo, "has taken a right fork", KNRM);
+		my_printf(philo, "has taken a fork", KNRM);
 		pthread_mutex_lock(&philo->next->fork_mutex);
-		my_printf(philo, "has taken a left fork", KBLU);
+		my_printf(philo, "has taken a fork", KBLU);
 		my_printf(philo, "is eating", KYEL);
 		pthread_mutex_lock(&philo->data->last_meal_mutex);
 		philo->last_meal_time = my_gettime();
@@ -37,7 +37,6 @@ void	philosopher_thread(t_philo *philo)
 		pthread_mutex_unlock(&philo->next->fork_mutex);
 		my_printf(philo, "is sleeping", KGRN);
 		my_usleep(philo->data->time_to_sleep);
-		my_printf(philo, "is thinking", KBLU);
 	}
 }
 
@@ -69,13 +68,7 @@ void	monitor_threads(t_philo *philos)
 			return ;
 		}
 		else if (philos->data->flag == philos->data->num_of_philo)
-		{
-			pthread_mutex_lock(&philos->data->print_mutex);
-			printf("%sall philosophers have eaten %d times%s\n",
-				KRED, philos->data->num_of_times_each_philo_must_eat, END);
-			destroy_mutex(philos);
 			return ;
-		}
 		philos = philos->next;
 		pthread_mutex_unlock(&philos->data->last_meal_mutex);
 		usleep(200);

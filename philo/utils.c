@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:30:59 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/22 03:17:22 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/11 13:05:48 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_atoi(char *str)
 
 int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+	return ((c >= '0' && c <= '9') || c == '+');
 }
 
 int	check_if_valid_args(int ac, char **av)
@@ -65,7 +65,8 @@ int	check_if_valid_args(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]) || ft_atoi(av[i]) == -1)
+			if (!ft_isdigit(av[i][j]) || ft_atoi(av[i]) == -1
+				)
 				return (-1);
 			j++;
 		}

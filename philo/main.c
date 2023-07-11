@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:44:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/06/24 21:43:47 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/11 15:07:46 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	data = malloc(sizeof(t_dinging_data));
-	if (!data)
-		return (0);
-	init_dinging_data(data, ac, av);
+	if (!data || init_dinging_data(data, ac, av) == -1)
+		return (1);
 	add_to_table(&philos, data);
 	help_create_threads(philos);
 	monitor_threads(philos);
