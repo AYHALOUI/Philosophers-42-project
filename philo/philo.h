@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:33:06 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/11 15:23:19 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/12 10:06:31 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int		ft_isdigit(int c);
 int		check_if_valid_args(int ac, char **av);
 int		init_dinging_data(t_dinging_data *data, int ac, char **av);
 t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_dinging_data *data);
-int		my_gettime(void);
-void	my_printf(t_philo *philo, char *str, char *color);
-int		my_usleep(int time);
+int		get_current_time(void);
+void	doing_something(t_philo *philo, char *str, char *color);
+int		wait_to_do(int time_to_wait);
 void	add_to_table(t_philo **philos, t_dinging_data *data);
 void	philosopher_thread(t_philo *philo);
 void	print_philo(t_philo *philos);

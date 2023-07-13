@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/11 15:22:08 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/12 10:07:00 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	init_dinging_data(t_dinging_data *data, int ac, char **av)
 	data->time_to_sleep = ft_atoi(av[4]);
 	if (!data->time_to_die || !data->time_to_eat || !data->time_to_sleep)
 		return (-1);
-	data->start_time = my_gettime();
+	data->start_time = get_current_time();
 	data->flag = 0;
 	if (ac == 6)
 	{
@@ -51,7 +51,7 @@ t_philo	*ft_lstnew(t_philo *philo, int id, t_philo *tmp, t_dinging_data *data)
 		return (NULL);
 	new->philo_number = id;
 	new->data = data;
-	new->last_meal_time = my_gettime();
+	new->last_meal_time = get_current_time();
 	new->next = tmp;
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:30:59 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/11 13:05:48 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/13 08:40:42 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_white_space(char c)
 
 int	ft_atoi(char *str)
 {
-	unsigned int		i;
+	int					i;
 	int					signe;
 	unsigned long int	result;
 
@@ -65,8 +65,7 @@ int	check_if_valid_args(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (!ft_isdigit(av[i][j]) || ft_atoi(av[i]) == -1
-				)
+			if (!ft_isdigit(av[i][j]) || ft_atoi(av[i]) == -1)
 				return (-1);
 			j++;
 		}
