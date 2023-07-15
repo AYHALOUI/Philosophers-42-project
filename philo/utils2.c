@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 01:09:56 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/12 10:06:00 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:20:43 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ int	get_current_time(void)
 void	doing_something(t_philo *philo, char *str, char *color)
 {
 	pthread_mutex_lock(&philo->data->print_mutex);
-	printf("%s%d %d %s%s\n", color, get_current_time() - philo->data->start_time,
+	if (!philo->data->dead)
+	{
+		printf("%s%d %d %s%s\n", color, get_current_time() - philo->data->start_time,
 		philo->philo_number, str, END);
+	}	
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 

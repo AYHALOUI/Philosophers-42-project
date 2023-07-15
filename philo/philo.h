@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:33:06 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/14 21:12:34 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:19:23 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_dinging_data
 	int				num_of_times_each_philo_must_eat;
 	int				start_time;
 	int				flag;
+	int				dead;
 	pthread_mutex_t	start_time_mutex;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	last_meal_mutex;

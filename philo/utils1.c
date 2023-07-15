@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/12 10:07:00 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:19:42 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	init_dinging_data(t_dinging_data *data, int ac, char **av)
 		return (-1);
 	data->start_time = get_current_time();
 	data->flag = 0;
+	data->dead = 0;
 	if (ac == 6)
 	{
 		data->num_of_times_each_philo_must_eat = ft_atoi(av[5]);

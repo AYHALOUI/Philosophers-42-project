@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 03:12:43 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/13 08:45:42 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/15 17:31:49 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	monitor_threads(t_philo *philos)
 			pthread_mutex_lock(&philos->data->print_mutex);
 			printf("%d %d died\n", get_current_time()
 				- philos->data->start_time, philos->philo_number);
-			destroy_mutex(philos);
+			philos->data->dead = 1;
+			usleep(50);
 			return ;
 		}
 		else if (philos->data->flag == philos->data->num_of_philo)
