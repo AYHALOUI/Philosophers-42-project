@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 23:33:06 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/15 17:19:23 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/19 16:31:08 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
-
-
 
 typedef struct s_dinging_data
 {

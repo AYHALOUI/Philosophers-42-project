@@ -6,7 +6,7 @@
 /*   By: ahaloui <ahaloui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 01:56:17 by ahaloui           #+#    #+#             */
-/*   Updated: 2023/07/15 17:19:42 by ahaloui          ###   ########.fr       */
+/*   Updated: 2023/07/19 16:31:50 by ahaloui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ int	init_dinging_data(t_dinging_data *data, int ac, char **av)
 	{
 		data->num_of_times_each_philo_must_eat = ft_atoi(av[5]);
 		if (!data->num_of_times_each_philo_must_eat)
-		{
-			printf("the Input is 0, the philo will not eat\n");
-			return (-1);
-		}
+			return (printf("the Input is 0, the philo will not eat\n"), -1);
 	}
 	else
 		data->num_of_times_each_philo_must_eat = 0;
